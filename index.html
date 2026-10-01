@@ -6,9 +6,9 @@
 <title data-app>Lista usterek – zespół</title>
 <style data-app>
 :root{
-  --bg:#FFFFFF;--surface:#FFFFFF;--surface-2:#EEF1F5;--ink:#16202E;--muted:#5A6678;
-  --rule:#D3DAE4;--rule-strong:#A3AEBD;--accent:#F4C430;--accent-ink:#1B1A12;
-  --danger:#B42318;--focus:#B8860B;
+  --bg:#F5F8FC;--surface:#FFFFFF;--surface-2:#EAF1F8;--ink:#13263A;--muted:#5B6B7F;
+  --rule:#D6DFEA;--rule-strong:#A9B8C9;--accent:#1E78C2;--accent-ink:#FFFFFF;
+  --danger:#B42318;--focus:#1E78C2;
   box-sizing:border-box;
   padding-top:env(safe-area-inset-top,0px);
   padding-bottom:env(safe-area-inset-bottom,0px);
@@ -60,7 +60,7 @@ button{cursor:pointer}
 .brand__card{display:flex;align-items:center;justify-content:center;height:54px;padding:8.5px 12px;background:#fff;border:1.5px solid var(--rule-strong);border-radius:10px;position:relative}
 .brand__card img{max-height:33.5px;max-width:100%;object-fit:contain}
 .brand__opt input:checked+.brand__card{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent)}
-.brand__opt input:checked+.brand__card::after{content:"";position:absolute;top:5px;right:5px;width:13.5px;height:13.5px;border-radius:50%;background:var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.5l2.5 2.5L12 5.5' fill='none' stroke='%231B1A12' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/100% no-repeat}
+.brand__opt input:checked+.brand__card::after{content:"";position:absolute;top:5px;right:5px;width:13.5px;height:13.5px;border-radius:50%;background:var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.5l2.5 2.5L12 5.5' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/100% no-repeat}
 .brand__opt input:focus-visible+.brand__card{outline:2px solid var(--focus);outline-offset:3px}
 .doc-head__row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:10px 14px}
 @media (max-width:360px){.doc-head__row{grid-template-columns:1fr}}
@@ -120,7 +120,7 @@ body.is-typing .minibar{display:grid}
 .trade span{display:inline-flex;align-items:center;gap:6px;min-height:32px;padding:0 12px 0 9px;border:1px solid var(--rule-strong);border-radius:999px;font-size:14px;font-weight:600;color:var(--ink)}
 .trade span::before{content:"";width:13px;height:13px;border:1.5px solid var(--rule-strong);border-radius:3px;box-sizing:border-box}
 .trade input:checked+span{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
-.trade input:checked+span::before{border-color:var(--accent-ink);background:var(--accent-ink) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.5l2.5 2.5L12 5.5' fill='none' stroke='%23F4C430' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/100% no-repeat}
+.trade input:checked+span::before{border-color:var(--accent-ink);background:var(--accent-ink) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.5l2.5 2.5L12 5.5' fill='none' stroke='%231E78C2' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/100% no-repeat}
 .trade input:focus-visible+span{outline:2px solid var(--focus);outline-offset:2px}
 .item textarea{width:100%;min-height:80.5px;resize:vertical;background:var(--bg);border:1px solid var(--rule);border-radius:8.5px;padding:10px;font-size:16px;line-height:1.4}
 .item textarea:focus{outline:none;border-color:var(--focus);box-shadow:0 0 0 1px var(--focus)}
@@ -145,7 +145,7 @@ body.is-typing .minibar{display:grid}
 .primary[aria-busy="true"]{opacity:.7;cursor:progress}
 body.locked .top,body.locked main.wrap,body.locked .bar{display:none}
 .gate{display:none;min-height:100vh;min-height:100dvh;padding:28px 18px 32px;justify-content:center;align-items:flex-start;
-  background:#fff;color:#16202E;--ink:#16202E;--muted:#5A6678;--surface:#fff;--surface-2:#EEF1F5;--rule:#DDE3EA;--rule-strong:#A3AEBD;--danger:#B42318;--focus:#B8860B}
+  background:#fff;color:#16202E;--ink:#16202E;--muted:#5A6678;--surface:#fff;--surface-2:#EEF1F5;--rule:#DDE3EA;--rule-strong:#A3AEBD;--danger:#B42318;--focus:#1E78C2}
 body.locked,body.admin-open{background:#fff}
 body.locked:not(.admin-open) #gate{display:flex}
 body.admin-open #adminPanel{display:flex}
@@ -590,12 +590,13 @@ function buildPdf(images){
   doc.addFileToVFS('LS-Regular.ttf',FONT_REG);doc.addFont('LS-Regular.ttf','LS','normal');
   doc.addFileToVFS('LS-Bold.ttf',FONT_BOLD);doc.addFont('LS-Bold.ttf','LS','bold');
   var W=210,H=297,M=16,CW=W-2*M,BOTTOM=H-20;
-  var INK=[22,32,46],MUTED=[90,102,120],ACC=[244,196,48],RULE=[211,218,228];
+  var INK=[19,38,58],MUTED=[90,102,120],ACC=[30,120,194],RULE=[211,218,228];
   var project=state.project.trim(),author=state.author.trim(),dateTxt=fmtDate(state.date),n=state.items.length;
   var FS=11,LH=FS*0.3528*1.45;
 
   var logo=LOGO;
   var sig=[COMPANY,CURRENT&&CURRENT.email,CURRENT&&CURRENT.phone].map(function(s){return (s||'').trim()}).filter(Boolean);
+  var tradesDrawn=false;
   function header(){
     doc.setFillColor(255,255,255);doc.rect(0,0,W,H,'F');
     var lh=Math.min(11,44/logo.ratio);doc.addImage(logo.src,'PNG',M,M-2,lh*logo.ratio,lh,'logo-vision','FAST');
@@ -609,7 +610,7 @@ function buildPdf(images){
     doc.text(doc.splitTextToSize(project,CW)[0],M,ty);
     doc.setFont('LS','normal');doc.setFontSize(10);doc.setTextColor.apply(doc,MUTED);
     doc.text('Lista usterek i poprawek z dnia '+dateTxt,M,ty+6);
-    drawTrades(ty+4.7,state.trades);
+    if(!tradesDrawn){drawTrades(ty+4.7,state.trades);tradesDrawn=true}
     doc.setDrawColor.apply(doc,RULE);doc.setLineWidth(0.3);doc.line(M,ty+10,W-M,ty+10);
     return ty+10;
   }
@@ -622,8 +623,8 @@ function buildPdf(images){
       doc.setTextColor.apply(doc,on?INK:MUTED);doc.text(tr.label,x,y+1.3);
       x-=1.6+3.2;
       if(on){
-        doc.setFillColor.apply(doc,ACC);doc.setDrawColor(200,155,20);doc.setLineWidth(0.3);doc.rect(x,y-1.5,3.2,3.2,'FD');
-        doc.setDrawColor(27,26,18);doc.setLineWidth(0.45);
+        doc.setFillColor.apply(doc,ACC);doc.setDrawColor(24,96,156);doc.setLineWidth(0.3);doc.rect(x,y-1.5,3.2,3.2,'FD');
+        doc.setDrawColor(255,255,255);doc.setLineWidth(0.45);
         doc.line(x+0.7,y+0.1,x+1.35,y+0.85);doc.line(x+1.35,y+0.85,x+2.55,y-0.75);
       }else{
         doc.setDrawColor.apply(doc,MUTED);doc.setLineWidth(0.3);doc.rect(x,y-1.5,3.2,3.2,'S');
@@ -633,7 +634,7 @@ function buildPdf(images){
   }
   function label(y,i,cont){
     doc.setFillColor.apply(doc,ACC);doc.circle(M+4,y,4,'F');
-    doc.setFont('LS','bold');doc.setFontSize(10);doc.setTextColor(27,26,18);
+    doc.setFont('LS','bold');doc.setFontSize(10);doc.setTextColor(255,255,255);
     doc.text(String(i+1),M+4,y+1.25,{align:'center'});
     doc.setFontSize(12);doc.setTextColor.apply(doc,INK);
     doc.text('Pozycja '+(i+1)+' z '+n+(cont?' (ciąg dalszy)':''),M+11,y+1.5);
